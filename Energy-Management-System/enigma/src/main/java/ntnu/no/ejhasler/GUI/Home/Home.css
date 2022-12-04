@@ -3,4 +3,9 @@ html, body, #container {
     height: 100%;
     margin: 0;
     padding: 0;
+    background-color: #141414;
+  }
+
+  .container {
+    color: #fff;
   }
