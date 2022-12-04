@@ -2,12 +2,11 @@
 
 header('Content-Type: application/json');
 
-include $_SERVER['DOCUMENT_ROOT'] . "/Database/db.php";
+include $_SERVER['DOCUMENT_ROOT'] . "/Database/session.php";
 
 $req = "SELECT Time, kWh
-        FROM UserData
-        WHERE DataID =";
-$req = $req . $_GET['q'] . " ORDER BY UNIX_TIMESTAMP(Time) ASC";
+        FROM UserData"
+$req = $req . " ORDER BY UNIX_TIMESTAMP(Time) ASC";
 
 $query = sprintf($req);
 

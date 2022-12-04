@@ -2,14 +2,8 @@
 
 include $_SERVER['DOCUMENT_ROOT']."/database/session.php";
 
-$sql = "SELECT DISTINCT kWh
-        FROM UserData
-        WHERE DataID LIKE '%";
-$sql = $sql.$_GET['q']."%'";
-
-$sql = "SELECT DISTINCT Time
-        FROM UserData
-        WHERE DataID LIKE '%";
+$sql = "SELECT DISTINCT Time, kWh
+        FROM UserData";
 $sql = $sql.$_GET['q']."%'";
 
 $query = mysqli_query($mysqli, $sql)

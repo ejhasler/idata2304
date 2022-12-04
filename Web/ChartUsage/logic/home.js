@@ -1,7 +1,6 @@
 $(document).ready(function(){
-    let DataID = localStorage.getItem('DataID');
     $.ajax({
-        url : "../../ChartUsage/server/getdatafromdb.php?q="+DataID.trim(),
+        url : "../../ChartUsage/server/getdatafromdb.php",
         type : "GET",
         success : function(data){
             
@@ -9,7 +8,7 @@ $(document).ready(function(){
             let time = [];
 
             for (let i in data) {
-                let d = new Date(data[i].time);
+                let d = new Date(data[i].Time);
                 time.push(d.toLocalStorageString());
                 kWh.push(data[i].kWh);
             }
