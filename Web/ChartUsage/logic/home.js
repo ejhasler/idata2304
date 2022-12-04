@@ -1,7 +1,7 @@
 $(document).ready(function(){
     let DataID = localStorage.getItem('DataID');
     $.ajax({
-        url : "/ChartUsage/server/getfromdb.php?q="+DataID.trim(),
+        url : "../../ChartUsage/server/getdatafromdb.php?q="+DataID.trim(),
         type : "GET",
         success : function(data){
             
@@ -21,7 +21,7 @@ $(document).ready(function(){
             gkWh.addColorStop(0.5, 'rgba(255, 0, 0, 0.25');
             gkWh.addColorStop(1, 'rgba(255, 0, 255, 0)');
 
-            let chartData = {
+            let chartdata = {
                 labels: time,
                 datasets: [
                     {
@@ -82,11 +82,11 @@ $(document).ready(function(){
                 }
               };
 
-              chart.defualts.global.defaultFontColor = "rgba(205, 205, 205, 1)";
+              Chart.defualts.global.defaultFontColor = "rgba(205, 205, 205, 1)";
 
               let ctx = $("#mycanvas");
 
-              let LineGraph = new chart(ctx, {
+              let LineGraph = new Chart(ctx, {
                 type: 'line',
                 data: chartdata,
                 options: options
