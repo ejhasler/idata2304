@@ -6,19 +6,26 @@ $(document).ready(function(){
             
             let kWh = [];
             let time = [];
+            let price = [];
 
             for (let i in data) {
                 let d = new Date(data[i].Time);
-                time.push(d.toLocalStorageString());
+                time.push(d.toLocaleString());
                 kWh.push(data[i].kWh);
+                price.push(data[i].Price);
             }
 
-            let chart       = document.getElementByDataID('mycanvas').getContext('2d');
+            let chart       = document.getElementById('mycanvas').getContext('2d');
             let gkWh         = chart.createLinearGradient(0, 0, 0, 450);
+            let gPrice      = chart.createLinearGradient(0, 0, 0, 450);
 
             gkWh.addColorStop(0, 'rgba(255, 0, 0, 0.5')
             gkWh.addColorStop(0.5, 'rgba(255, 0, 0, 0.25');
             gkWh.addColorStop(1, 'rgba(255, 0, 255, 0)');
+
+            gPrice.addColorStop(0, 'rgba(0, 50, 255, 0.5)');
+            gPrice.addColorStop(0.5, 'rgba(0, 50, 255, 0.25)');
+            gPrice.addColorStop(1, 'rgba(0, 50, 255, 0)');
 
             let chartdata = {
                 labels: time,
@@ -34,6 +41,18 @@ $(document).ready(function(){
                         pointHoverBackroundColor: "rgba(155, 0, 0, 1)",
                         pointHoverBorderColor: "rgba(155, 0, 0, 1)",
                         data: kWh
+                    },
+                    {
+                      label: "Pris Kr",
+                      fill: false,
+                      lineTension: 0.1,
+                      backgroundColor: gPrice,
+                      borderColor: "rgba(255, 0, 255, 0.85)",
+                      pointBackroundColor: "white",
+                      borderWidth: 2,
+                      pointHoverBackroundColor: "rgba(155, 0, 155, 1)",
+                      pointHoverBorderColor: "rgba(155, 0, 155, 1)",
+                      data: price
                     }
                 ]
             };
@@ -81,7 +100,7 @@ $(document).ready(function(){
                 }
               };
 
-              Chart.defualts.global.defaultFontColor = "rgba(205, 205, 205, 1)";
+             // Chart.defualts.global.defaultFontColor = "rgba(205, 205, 205, 1)";
 
               let ctx = $("#mycanvas");
 

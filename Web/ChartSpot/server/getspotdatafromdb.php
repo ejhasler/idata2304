@@ -4,8 +4,8 @@ header('Content-Type: application/json');
 
 include $_SERVER['DOCUMENT_ROOT']."/Database/session.php";
 
-$req = "SELECT Time, kWh, Price
-        FROM UserData 
+$req = "SELECT Time, kWh
+        FROM SpotPrice 
         ORDER BY UNIX_TIMESTAMP(Time) ASC";
 
 

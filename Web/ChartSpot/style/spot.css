@@ -1,0 +1,13 @@
+* {
+    background-color: #131313;
+}
+
+h1 {
+    color: #fff;
+}
+
+canvas {
+    background-color: #fff;
+    width: 300;
+    height: 200;
+}

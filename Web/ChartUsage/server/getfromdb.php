@@ -1,6 +1,6 @@
 <?php
 
-include $_SERVER['DOCUMENT_ROOT']."/database/session.php";
+include $_SERVER['DOCUMENT_ROOT']."/Database/session.php";
 
 $sql = "SELECT DISTINCT Time, kWh
         FROM UserData";
